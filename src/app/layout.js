@@ -1,3 +1,4 @@
+// app/layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -19,10 +20,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <header style={{ padding: '10px', backgroundColor: '#333', color: 'white' }}>
+          <nav>
+            <ul style={{ display: 'flex', gap: '15px' }}>
+              <li><a href="/" style={{ color: 'white' }}>Home</a></li>
+              <li><a href="/about" style={{ color: 'white' }}>About</a></li>
+              <li><a href="/contact" style={{ color: 'white' }}>Contact</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <main>{children}</main>
+
+        <footer style={{ padding: '20px', backgroundColor: '#333', color: 'white', textAlign: 'center' }}>
+          © 2025 My Next.js App
+        </footer>
       </body>
     </html>
   );
